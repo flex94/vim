@@ -51,9 +51,6 @@ Plugin 'gmarik/Vundle.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set splitbelow
-set splitright
-
 " Use flake8 - LINT
 let g:syntastic_python_checkers=["flake8"]
 let ignore = '--ignore=E101,E501,E302,E261,E701,E241,E126,E127,E128,W801,W291,E305,E251,W391,W293'
@@ -65,14 +62,16 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
 
 " Enable folding, use with 'za' (default)
 set foldmethod=indent
 set foldlevel=99
-
-"nnoremap <space> za " Enable folding with the spacebar
 let g:SimpylFold_docstring_preview=1
+"nnoremap <space> za " Enable folding with the spacebar
 
+"Python options
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -81,6 +80,9 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+
+let python_highlight_all=1
+syntax on
 
 "au BufNewFile,BufRead *.js, *.html, *.css
 "    \ set tabstop=2 |
@@ -113,25 +115,18 @@ map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>     " goto def key
     "EOF
 
 " Theme options
-    if has('gui_running')
-      set background=dark
-      colorscheme solarized
-    else
-      colorscheme zenburn
-    endif
+colorscheme zenburn
 
-    call togglebg#map("<F5>")
+"Switch buffer with F5
+:nnoremap <F5> :buffers<CR>:buffer<Space>
 
-set encoding=utf-8
-
-let python_highlight_all=1
-syntax on
-
-set nu " line #
-
+"Clipboard settings
 "set clipboard=unnamedplus "to copy past to ext programs LINUX
 set clipboard=unnamed "MAC
 
+" Other options
+set encoding=utf-8
+set nu " line #
 set lines=50 columns=120 "default win size
 
 " Powerline setup
