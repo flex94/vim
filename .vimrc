@@ -125,6 +125,7 @@ colorscheme zenburn
 set clipboard=unnamed "MAC
 
 " Other options
+set hidden "no need to save a buffer before switching
 set encoding=utf-8
 set nu " line #
 set lines=50 columns=120 "default win size
