@@ -92,14 +92,14 @@ syntax on
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ 
 
 " UltiSnips keys 
-let g:UltiSnipsExpandTrigger="<TAB>"
+let g:UltiSnipsExpandTrigger="<C-Y>"
 let g:UltiSnipsJumpForwardTrigger="<TAB>"
 let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 
 " YCM options
 let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_key_list_select_completion = ['<Down>'] "rm TAB to avoid conflicts w UltiSnips
-let g:ycm_key_list_previous_completion = ['<Up>'] "NB: Ctrl P is supported by default, use it
+"let g:ycm_key_list_select_completion = ['<Down>'] "rm TAB to avoid conflicts w UltiSnips
+"let g:ycm_key_list_previous_completion = ['<Up>'] "NB: Ctrl P is supported by default, use it
 map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>     " goto def key
 
 " FOR YCM - doesn't work fine
