@@ -53,7 +53,7 @@ filetype plugin indent on    " required
 
 " Use flake8 - LINT
 let g:syntastic_python_checkers=["flake8"]
-let ignore = '--ignore=E101,E501,E302,E261,E701,E241,E126,E127,E128,W801,W291,E305,E251,W391,W293'
+let ignore = '--ignore=E501,E302,E241,E126,E127,E128,W291,E305,W391,W293'
 let g:syntastic_python_flake8_args = ignore
 let g:syntastic_python_checker_args = ignore
 
