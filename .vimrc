@@ -120,9 +120,13 @@ colorscheme zenburn
 "Switch buffer with F5
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
-"Clipboard settings
-"set clipboard=unnamedplus "to copy past to ext programs LINUX
-set clipboard=unnamed "MAC
+"Clipboard settings - to copy paste to ext progrms
+	if has("unix") "linux
+		set clipboard=unnamedplus 
+	endif
+	if has("macunix") "mac
+		set clipboard=unnamed 
+	endif
 
 " Other options
 set hidden "no need to save a buffer before switching
