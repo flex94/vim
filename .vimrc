@@ -32,7 +32,7 @@ Plugin 'gmarik/Vundle.vim'
 
     " Themes
     Plugin 'jnurmine/Zenburn'
-    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'joshdick/onedark.vim'
 
     " NerdTree
     "Plugin 'scrooloose/nerdtree'
@@ -116,6 +116,7 @@ map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>     " goto def key
 
 " Theme options
 colorscheme zenburn
+"colorscheme onedark
 
 "Switch buffer with F5
 :nnoremap <F5> :buffers<CR>:buffer<Space>
