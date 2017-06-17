@@ -121,6 +121,9 @@ colorscheme zenburn
 "Switch buffer with F5
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
+"Run current script with python3
+:nnoremap <F9> :!python3 %<CR>
+
 "Clipboard settings - to copy paste to ext progrms
 	if has("unix") "linux
 		set clipboard=unnamedplus 
