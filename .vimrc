@@ -21,6 +21,7 @@ Plugin 'gmarik/Vundle.vim'
     
     " Auto complete
     Bundle 'Valloric/YouCompleteMe'
+		Plugin 'marijnh/tern_for_vim' "for js
 
     " Snippets
     Plugin 'SirVer/ultisnips'
@@ -33,6 +34,7 @@ Plugin 'gmarik/Vundle.vim'
     " Themes
     Plugin 'jnurmine/Zenburn'
     Plugin 'altercation/vim-colors-solarized'
+		Plugin 'trevordmiller/nova-vim'
 
     " NerdTree
     "Plugin 'scrooloose/nerdtree'
@@ -46,6 +48,10 @@ Plugin 'gmarik/Vundle.vim'
 
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
+    " Javascript Syntax higlight
+    Plugin 'pangloss/vim-javascript' "js
+    Plugin 'mxw/vim-jsx' "jsx
+    Plugin 'leshill/vim-json' "json
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,15 +90,17 @@ au BufNewFile,BufRead *.py
 let python_highlight_all=1
 syntax on
 
-"au BufNewFile,BufRead *.js, *.html, *.css
-"    \ set tabstop=2 |
-"    \ set softtabstop=2 |
-"    \ set shiftwidth=2 |
+"Web options
+au BufNewFile,BufRead *.js,*.jsx,*.html,*.css,*.json
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ 
 
 " UltiSnips keys 
-let g:UltiSnipsExpandTrigger="<C-Y>"
+let g:UltiSnipsExpandTrigger="<C-_>"
 let g:UltiSnipsJumpForwardTrigger="<TAB>"
 let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 
@@ -115,7 +123,7 @@ map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>     " goto def key
     "EOF
 
 " Theme options
-colorscheme zenburn
+colorscheme nova
 
 "Switch buffer with F5
 :nnoremap <F5> :buffers<CR>:buffer<Space>
