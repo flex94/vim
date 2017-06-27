@@ -33,8 +33,8 @@ Plugin 'gmarik/Vundle.vim'
 
     " Themes
     Plugin 'jnurmine/Zenburn'
-    Plugin 'altercation/vim-colors-solarized'
-		Plugin 'trevordmiller/nova-vim'
+    Plugin 'trevordmiller/nova-vim'
+    Plugin 'joshdick/onedark.vim'
 
     " NerdTree
     "Plugin 'scrooloose/nerdtree'
@@ -124,9 +124,14 @@ map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>     " goto def key
 
 " Theme options
 colorscheme nova
+"colorscheme zenburn
+"colorscheme onedark
 
 "Switch buffer with F5
 :nnoremap <F5> :buffers<CR>:buffer<Space>
+
+"Run current script with python3
+:nnoremap <F9> :!ipython3 %<CR>
 
 "Clipboard settings - to copy paste to ext progrms
 	if has("unix") "linux
