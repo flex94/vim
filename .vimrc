@@ -16,52 +16,68 @@ Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-    Plugin 'tmhedberg/SimpylFold'
-    Plugin 'vim-scripts/indentpython.vim'
-    
-    " Auto complete
-    Bundle 'Valloric/YouCompleteMe'
-		Plugin 'marijnh/tern_for_vim' "for js
+	" Interface
+	Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+	Plugin 'tmhedberg/SimpylFold'
 
-    " Snippets
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
+	" Auto complete
+	Bundle 'Valloric/YouCompleteMe'
+	Plugin 'marijnh/tern_for_vim' "for js
 
-    " Lint
-    Plugin 'scrooloose/syntastic'
-    Plugin 'nvie/vim-flake8'
+	"Auto close brackets
+	Plugin 'jiangmiao/auto-pairs'
 
-    " Themes
-    Plugin 'jnurmine/Zenburn'
-    Plugin 'trevordmiller/nova-vim'
-    Plugin 'joshdick/onedark.vim'
+	"Commands for surroundings
+	Plugin 'tpope/vim-surround'
 
-    " NerdTree
-    "Plugin 'scrooloose/nerdtree'
-    "Plugin 'jistr/vim-nerdtree-tabs'
+	" Delete buffer w/o closing win (:BD)
+	Plugin 'qpkorr/vim-bufkill'
+	
+	" Snippets
+	Plugin 'SirVer/ultisnips'
+	Plugin 'honza/vim-snippets'
 
-    " Super Search with Ctrl-Space-P
-    Plugin 'kien/ctrlp.vim'  
+	" Lint
+	Plugin 'scrooloose/syntastic'
+	Plugin 'nvie/vim-flake8'
 
-    " Git Integration
-    Plugin 'tpope/vim-fugitive'
+	" Themes
+	Plugin 'jnurmine/Zenburn'
+	Plugin 'trevordmiller/nova-vim'
+	Plugin 'joshdick/onedark.vim'
+	Plugin 'rhysd/vim-color-spring-night'
 
-    Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+	" NerdTree
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'jistr/vim-nerdtree-tabs'
 
-    " Javascript Syntax higlight
-    Plugin 'pangloss/vim-javascript' "js
-    Plugin 'mxw/vim-jsx' "jsx
-    Plugin 'leshill/vim-json' "json
+	" Super Search with Ctrl-Space-P
+	Plugin 'kien/ctrlp.vim'  
+
+	" Git Integration
+	Plugin 'tpope/vim-fugitive'
+
+	" Python
+	Plugin 'vim-scripts/indentpython.vim'
+
+	" Web/JS Syntax higlight
+	Plugin 'pangloss/vim-javascript' "js
+	Plugin 'mxw/vim-jsx' "jsx
+	Plugin 'leshill/vim-json' "json
+	Plugin 'othree/html5.vim' "html
+	Plugin 'hail2u/vim-css3-syntax' "css
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Use flake8 - LINT
+" Lints
 let g:syntastic_python_checkers=["flake8"]
 let ignore = '--ignore=E501,E302,E241,E126,E127,E128,W291,E305,W391,W293'
 let g:syntastic_python_flake8_args = ignore
 let g:syntastic_python_checker_args = ignore
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -100,7 +116,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ 
 
 " UltiSnips keys 
-let g:UltiSnipsExpandTrigger="<C-_>"
+let g:UltiSnipsExpandTrigger="<C-_>" "ctrl /
 let g:UltiSnipsJumpForwardTrigger="<TAB>"
 let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 
@@ -123,9 +139,9 @@ map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>     " goto def key
     "EOF
 
 " Theme options
-colorscheme nova
+"colorscheme nova
 "colorscheme zenburn
-"colorscheme onedark
+colorscheme onedark
 
 "Switch buffer with F5
 :nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -146,6 +162,9 @@ set hidden "no need to save a buffer before switching
 set encoding=utf-8
 set nu " line #
 set lines=50 columns=120 "default win size
+"lower case search are case-insensitive
+	set ignorecase
+	set smartcase 
 
 " Powerline setup
 set laststatus=2
@@ -156,6 +175,7 @@ let g:Powerline_symbols = 'fancy'
 " set guifont=Ubuntu\ Mono
 
 " NERDTREE options
-"let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 1 " Start NERDTree Tabs automatically 
+"enable/disable with \n
+	:nnoremap <leader>n :NERDTreeTabsToggle<CR> 
