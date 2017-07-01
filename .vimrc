@@ -45,11 +45,11 @@ Plugin 'gmarik/Vundle.vim'
 	Plugin 'jnurmine/Zenburn'
 	Plugin 'trevordmiller/nova-vim'
 	Plugin 'joshdick/onedark.vim'
-	Plugin 'rhysd/vim-color-spring-night'
 
 	" NerdTree
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'jistr/vim-nerdtree-tabs'
+	Plugin 'scrooloose/nerdcommenter' " [count]\c<space> toggle comment
 
 	" Super Search with Ctrl-Space-P
 	Plugin 'kien/ctrlp.vim'  
