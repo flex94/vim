@@ -79,6 +79,8 @@ let g:syntastic_python_checker_args = ignore
 
 let g:syntastic_javascript_checkers = ['eslint']
 
+"let g:syntastic_debug = 3
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -111,6 +113,7 @@ au BufNewFile,BufRead *.js,*.jsx,*.html,*.css,*.json
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+    \ set expandtab | "only spaces
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ 
